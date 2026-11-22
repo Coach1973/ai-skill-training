@@ -69,7 +69,8 @@ nav ul a:hover{color:var(--plum)}
 .slot{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;background:linear-gradient(150deg,#e8dcc8,#d9b8c4 60%,#e3c98f);box-shadow:0 30px 60px -30px rgba(71,42,64,.55)}
 .slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .slot.wide{aspect-ratio:16/9}
-.slot.sq{aspect-ratio:1/1}
+.slot.sq{aspect-ratio:4/5}.slot.sq img{object-position:center top}
+.t-link{display:inline-block;margin-top:18px;padding:12px 26px;border-radius:999px;background:var(--plum-d);color:#fff;font-weight:700;font-size:20px;text-decoration:none}.t-link:hover{opacity:.88}.teacher-panel h3 a{color:inherit;text-decoration:none;border-bottom:2px solid var(--gold-d)}
 .badge-float{position:absolute;background:#fff;border-radius:20px;padding:12px 20px;box-shadow:0 20px 40px -18px rgba(71,42,64,.45);font-weight:700;font-size:20px;animation:bob 4s ease-in-out infinite}
 .badge-float.b1{top:6%;left:-6%;color:var(--plum)}
 .badge-float.b2{bottom:8%;right:-4%;color:var(--gold-d);animation-delay:-2s}
@@ -378,9 +379,9 @@ footer a{color:#fff}
       <button class="tab" data-teacher="2">李羽妍</button>
     </div>
     <div class="teacher-panel" style="text-align:left">
-      <div class="slot sq"><img id="tPhoto" src="images/teacher-chiu.webp" width="707" height="1000" alt="邱裕榮講師照片" loading="lazy"></div>
+      <div class="slot sq"><a id="tPhotoLink" href="https://event.bymyway.com/curated/qiu-yurong-muse/" target="_blank" rel="noopener"><img id="tPhoto" src="images/teacher-chiu.webp" width="707" height="1000" alt="邱裕榮講師照片" loading="lazy"></a></div>
       <div>
-        <h3 id="tName">邱裕榮</h3>
+        <h3><a id="tNameLink" href="https://event.bymyway.com/curated/qiu-yurong-muse/" target="_blank" rel="noopener"><span id="tName">邱裕榮</span></a></h3>
         <div class="tagline" id="tTag">計畫主持人｜從媒體到使命的跨界行者</div>
         <ul class="roles" id="tRoles">
           <li>才榮數位 總經理</li>
@@ -395,6 +396,7 @@ footer a{color:#fff}
           <li>採訪超過 100 位上市櫃公司負責人，深度接觸上千位中小企業與創業者</li>
           <li>專長：AI 採訪與逐字稿實務、商業模式與決策脈絡分析、企業故事與知識資產轉化</li>
         </ul>
+        <a class="t-link" id="tMore" href="https://event.bymyway.com/curated/qiu-yurong-muse/" target="_blank" rel="noopener">看邱裕榮的完整介紹 →</a>
       </div>
     </div>
   </div>
@@ -654,15 +656,15 @@ document.querySelectorAll('.pain-card').forEach(function(card){
 });
 /* 講師切換 */
 var teachers=[
- {photo:'images/teacher-chiu.webp',name:'邱裕榮',tag:'計畫主持人｜從媒體到使命的跨界行者',alt:'邱裕榮講師照片',
+ {url:'https://event.bymyway.com/curated/qiu-yurong-muse/',photo:'images/teacher-chiu.webp',name:'邱裕榮',tag:'計畫主持人｜從媒體到使命的跨界行者',alt:'邱裕榮講師照片',
   roles:['才榮數位 總經理','AI傳道學院 創辦人｜AI媒體聯盟 總編輯','AI 商業模式 共同創辦人','AI 採訪 × 商業洞察 × 內容轉譯 顧問'],
   quote:'「讓經驗被留下，讓對話變成智慧；讓科技服事人，而不是取代人。」',
   hl:['20 年以上財經、管理與產業媒體經驗','前《工商時報》記者、《管理雜誌》特約記者；東森聯播網《BossClub 老闆俱樂部》節目主持人','採訪超過 100 位上市櫃公司負責人，深度接觸上千位中小企業與創業者','專長：AI 採訪與逐字稿實務、商業模式與決策脈絡分析、企業故事與知識資產轉化']},
- {photo:'images/teacher-yang.webp',name:'楊曉熹',tag:'專業講師｜從科技管理到生命牧養的跨界實踐者',alt:'楊曉熹講師照片',
+ {url:'https://event.bymyway.com/curated/yang-xiaoxi/',photo:'images/teacher-yang2.webp',name:'楊曉熹',tag:'專業講師｜從科技管理到生命牧養的跨界實踐者',alt:'楊曉熹講師照片',
   roles:['牧師／博士','神學教育與職場事工推動者','跨領域企業管理與教育培訓專業','心理輔導、家庭教育與教會治理實務'],
   quote:'「讓真理走進生活，讓專業成為祝福；以信仰為根基，融合專業與關懷，成就生命價值。」',
   hl:['英國克蘭菲爾大學（Cranfield University）材料工程博士','具備工程、管理、神學及心理輔導跨領域背景','擁有心理諮商及家庭教育專業資格','專長：神學教育、聖經研讀與職場事工、Havruta 家庭教育與親子成長、心理輔導與人際溝通']},
- {photo:'images/teacher-iris.webp',name:'李羽妍',tag:'專業講師｜以科技連結美學，讓學習成為生命轉型的力量',alt:'李羽妍講師照片',
+ {url:'https://event.bymyway.com/curated/li-yuyan/',photo:'images/teacher-iris2.webp',name:'李羽妍',tag:'專業講師｜以科技連結美學，讓學習成為生命轉型的力量',alt:'李羽妍講師照片',
   roles:['R.C. Aesthetics AI Lab 創辦人','AI 數位與美學應用講師','產業人才投資方案及大學推廣教育課程講師'],
   quote:'「讓科技有溫度，讓美學走進生活；讓每個人都能透過學習，重新看見自己的價值。」',
   hl:['文化部婦女人才培訓計畫執行人與講師','具大學推廣教育、職業培訓及社區教學經驗','國立屏東科技大學 熱帶農業暨國際合作研究所畢業；時尚設計與管理系碩士班研修中','專長：生成式 AI 工具與數位創作應用、AI 美學設計與個人品牌建立、職場 AI 應用與數位能力培訓']}];
@@ -674,6 +676,8 @@ document.querySelectorAll('.tab').forEach(function(tab){
     document.getElementById('tPhoto').src=d.photo;
     document.getElementById('tPhoto').alt=d.alt;
     document.getElementById('tName').textContent=d.name;
+    ['tPhotoLink','tNameLink','tMore'].forEach(function(i){document.getElementById(i).href=d.url});
+    document.getElementById('tMore').textContent='看'+d.name+'的完整介紹 →';
     document.getElementById('tTag').textContent=d.tag;
     document.getElementById('tRoles').innerHTML=d.roles.map(function(r){return '<li>'+r+'</li>'}).join('');
     document.getElementById('tQuote').textContent=d.quote;
